@@ -1,0 +1,14 @@
+{
+  "name": "executive",
+  "version": "1.0.0",
+  "description": "Claude Code orchestration dashboard",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "setup": "node setup.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "uuid": "^10.0.0"
+  }
+}
