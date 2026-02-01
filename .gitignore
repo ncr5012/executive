@@ -1,0 +1,4 @@
+node_modules/
+data/tasks.json
+data/server.log
+data/tasks.json.tmp

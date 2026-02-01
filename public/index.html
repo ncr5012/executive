@@ -11,7 +11,7 @@
     background: #0a0a0a;
     color: #e0e0e0;
     min-height: 100vh;
-    padding: 24px;
+    padding: 32px;
   }
   header {
     display: flex;
@@ -21,48 +21,48 @@
     padding-bottom: 16px;
     border-bottom: 1px solid #222;
   }
-  h1 { font-size: 20px; font-weight: 600; letter-spacing: 4px; color: #fff; }
+  h1 { font-size: 32px; font-weight: 600; letter-spacing: 4px; color: #fff; }
   .btn {
-    padding: 8px 16px;
+    padding: 14px 24px;
     border: 1px solid #333;
     background: #1a1a1a;
     color: #ccc;
     cursor: pointer;
     font-family: inherit;
-    font-size: 13px;
-    border-radius: 4px;
+    font-size: 18px;
+    border-radius: 6px;
   }
   .btn:hover { background: #252525; border-color: #444; }
   .btn-green { border-color: #2a5a2a; color: #4ade80; }
   .btn-green:hover { background: #1a2e1a; }
 
   .section-label {
-    font-size: 11px;
+    font-size: 18px;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin: 24px 0 12px 0;
+    margin: 32px 0 16px 0;
     display: flex;
     align-items: center;
     gap: 8px;
   }
   .dot {
-    width: 8px; height: 8px;
+    width: 12px; height: 12px;
     border-radius: 50%;
     display: inline-block;
   }
-  .dot-green { background: #4ade80; box-shadow: 0 0 8px #4ade8066; }
-  .dot-red { background: #f87171; box-shadow: 0 0 8px #f8717166; }
-  .dot-yellow { background: #facc15; box-shadow: 0 0 8px #facc1566; }
+  .dot-green { background: #4ade80; box-shadow: 0 0 10px #4ade8066; }
+  .dot-red { background: #f87171; box-shadow: 0 0 10px #f8717166; }
+  .dot-yellow { background: #facc15; box-shadow: 0 0 10px #facc1566; }
 
-  .task-list { display: flex; flex-direction: column; gap: 6px; }
+  .task-list { display: flex; flex-direction: column; gap: 10px; }
 
   .task {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 12px 16px;
-    border-radius: 6px;
+    gap: 16px;
+    padding: 18px 24px;
+    border-radius: 8px;
     background: #111;
     border: 1px solid #1a1a1a;
   }
@@ -70,11 +70,11 @@
   .task-working { background: #1a0a0a; border-color: #3a1a1a; }
   .task-queued { background: #1a1a0a; border-color: #3a3a1a; }
 
-  .task-icon { font-size: 18px; flex-shrink: 0; }
+  .task-icon { font-size: 28px; flex-shrink: 0; }
 
   .task-info { flex: 1; min-width: 0; }
   .task-title {
-    font-size: 14px;
+    font-size: 22px;
     font-weight: 500;
     white-space: nowrap;
     overflow: hidden;
@@ -86,22 +86,22 @@
     border-bottom: 1px solid #444;
     color: #e0e0e0;
     font-family: inherit;
-    font-size: 14px;
+    font-size: 22px;
     width: 100%;
     outline: none;
   }
   .task-meta {
-    font-size: 11px;
+    font-size: 16px;
     color: #666;
-    margin-top: 2px;
+    margin-top: 4px;
     display: flex;
     gap: 12px;
   }
 
   .badge {
-    font-size: 10px;
-    padding: 2px 8px;
-    border-radius: 3px;
+    font-size: 16px;
+    padding: 6px 14px;
+    border-radius: 4px;
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -115,9 +115,9 @@
   .badge-machine {
     background: #1e293b;
     color: #93c5fd;
-    font-size: 10px;
-    padding: 2px 8px;
-    border-radius: 3px;
+    font-size: 16px;
+    padding: 6px 14px;
+    border-radius: 4px;
   }
 
   .toggle-wrap {
@@ -126,9 +126,9 @@
     gap: 6px;
     flex-shrink: 0;
   }
-  .toggle-label { font-size: 10px; color: #666; letter-spacing: 1px; text-transform: uppercase; }
+  .toggle-label { font-size: 16px; color: #666; letter-spacing: 1px; text-transform: uppercase; }
   .toggle {
-    width: 36px; height: 20px;
+    width: 52px; height: 28px;
     background: #333;
     border-radius: 10px;
     cursor: pointer;
@@ -139,26 +139,26 @@
   .toggle::after {
     content: '';
     position: absolute;
-    width: 16px; height: 16px;
+    width: 22px; height: 22px;
     border-radius: 50%;
     background: #888;
-    top: 2px; left: 2px;
+    top: 3px; left: 3px;
     transition: all 0.2s;
   }
-  .toggle.on::after { left: 18px; background: #4ade80; }
+  .toggle.on::after { left: 27px; background: #4ade80; }
 
 
   .delete-btn {
-    font-size: 14px;
+    font-size: 24px;
     background: none;
     border: none;
     color: #444;
     cursor: pointer;
-    padding: 4px;
+    padding: 6px;
   }
   .delete-btn:hover { color: #f87171; }
 
-  .empty { color: #444; font-size: 13px; padding: 12px 16px; }
+  .empty { color: #444; font-size: 18px; padding: 16px 24px; }
 
   /* New task form */
   .new-task-form {
@@ -194,8 +194,57 @@
     border-radius: 4px;
   }
 
+  .add-task-bar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .add-task-bar input {
+    flex: 1;
+    padding: 14px 18px;
+    background: #111;
+    border: 1px solid #333;
+    color: #e0e0e0;
+    font-family: inherit;
+    font-size: 20px;
+    border-radius: 6px;
+    outline: none;
+  }
+  .add-task-bar input:focus { border-color: #555; }
+  .add-task-bar input::placeholder { color: #555; }
+
+  .btn-sm {
+    padding: 8px 16px;
+    border: 1px solid #333;
+    background: #1a1a1a;
+    color: #ccc;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .btn-sm:hover { background: #252525; border-color: #444; }
+  .btn-sm-blue { border-color: #1e3a5f; color: #93c5fd; }
+  .btn-sm-blue:hover { background: #1a2a3a; }
+  .btn-sm-green { border-color: #2a5a2a; color: #4ade80; }
+  .btn-sm-green:hover { background: #1a2e1a; }
+  .btn-sm-yellow { border-color: #5a5a1a; color: #facc15; }
+  .btn-sm-yellow:hover { background: #2a2a0a; }
+
+  .badge-manual {
+    background: #2e1065;
+    color: #c4b5fd;
+    font-size: 16px;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
   #connection-status {
-    width: 8px; height: 8px;
+    width: 12px; height: 12px;
     border-radius: 50%;
     background: #f87171;
     display: inline-block;
@@ -209,6 +258,10 @@
   <h1>EXECUTIVE <span id="connection-status" title="Disconnected"></span></h1>
 </header>
 
+<div class="add-task-bar">
+  <input type="text" id="manualTaskInput" placeholder="Add a task..." onkeydown="if(event.key==='Enter')addManualTask()">
+  <button class="btn btn-green" onclick="addManualTask()">+ Add Task</button>
+</div>
 
 <div id="taskContainer"></div>
 
@@ -288,6 +341,12 @@ function sortTasks(tasks) {
     const sa = order[a.status] ?? 3;
     const sb = order[b.status] ?? 3;
     if (sa !== sb) return sa - sb;
+    // In done, Claude tasks above manual tasks
+    if (a.status === 'done') {
+      const ma = a.manual ? 1 : 0;
+      const mb = b.manual ? 1 : 0;
+      if (ma !== mb) return ma - mb;
+    }
     const ta = tierOrder[a.tier] ?? 1;
     const tb = tierOrder[b.tier] ?? 1;
     if (ta !== tb) return ta - tb;
@@ -342,7 +401,9 @@ function render() {
           </div>
         </div>
         <span class="badge badge-${t.tier} clickable" onclick="toggleTier('${t.id}', '${t.tier}')">${t.tier}</span>
-        <span class="badge badge-machine">${esc(t.machine)}</span>
+        ${t.manual ? '<span class="badge badge-manual">manual</span>' : '<span class="badge badge-machine">' + esc(t.machine) + '</span>'}
+        ${t.manual ? '<button class="btn-sm btn-sm-yellow" onclick="setManualStatus(\'' + t.id + '\', \'working\')">Resume</button>' : ''}
+        ${t.manual ? '<button class="delete-btn" onclick="deleteTask(\'' + t.id + '\')" title="Delete">&times;</button>' : ''}
       </div>`;
   });
   html += '</div>';
@@ -363,33 +424,35 @@ function render() {
           </div>
         </div>
         <span class="badge badge-${t.tier} clickable" onclick="toggleTier('${t.id}', '${t.tier}')">${t.tier}</span>
-        <span class="badge badge-machine">${esc(t.machine)}</span>
-        <div class="toggle-wrap">
-          <span class="toggle-label">Auto</span>
-          <div class="toggle ${t.autopilot ? 'on' : ''}" onclick="toggleAutopilot('${t.id}', ${!t.autopilot})"></div>
-        </div>
+        ${t.manual ? '<span class="badge badge-manual">manual</span>' : '<span class="badge badge-machine">' + esc(t.machine) + '</span>'}
+        ${t.manual
+          ? '<button class="btn-sm btn-sm-green" onclick="setManualStatus(\'' + t.id + '\', \'done\')">Done</button><button class="delete-btn" onclick="deleteTask(\'' + t.id + '\')" title="Delete">&times;</button>'
+          : '<div class="toggle-wrap"><span class="toggle-label">Auto</span><div class="toggle ' + (t.autopilot ? 'on' : '') + '" onclick="toggleAutopilot(\'' + t.id + '\', ' + !t.autopilot + ')"></div></div>'}
       </div>`;
   });
   html += '</div>';
 
   // Queued section
-  if (queued.length > 0) {
-    html += `<div class="section-label"><span class="dot dot-yellow"></span> QUEUED (${queued.length})</div>`;
-    html += '<div class="task-list">';
+  html += `<div class="section-label"><span class="dot dot-yellow"></span> QUEUED (${queued.length})</div>`;
+  html += '<div class="task-list">';
+  if (queued.length === 0) html += '<div class="empty">No queued tasks</div>';
+  {
     queued.forEach(t => {
       html += `
         <div class="task task-queued">
           <div class="task-icon" style="color:#facc15">&#9203;</div>
           <div class="task-info">
-            <div class="task-title">${esc(t.title)}</div>
-            <div class="task-meta"><span>Waiting for claim</span></div>
+            <div class="task-title" ondblclick="editTitle(this, '${t.id}')">${esc(t.title)}</div>
+            <div class="task-meta"><span>${t.manual ? 'Backlog' : 'Waiting for claim'}</span></div>
           </div>
           <span class="badge badge-${t.tier} clickable" onclick="toggleTier('${t.id}', '${t.tier}')">${t.tier}</span>
-          <span class="badge badge-machine">${esc(t.machine)}</span>
+          ${t.manual ? '<span class="badge badge-manual">manual</span>' : '<span class="badge badge-machine">' + esc(t.machine) + '</span>'}
+          ${t.manual ? '<button class="btn-sm btn-sm-blue" onclick="setManualStatus(\'' + t.id + '\', \'working\')">Start</button><button class="delete-btn" onclick="deleteTask(\'' + t.id + '\')" title="Delete">&times;</button>' : ''}
         </div>`;
     });
     html += '</div>';
   }
+  html += '</div>';
 
   container.innerHTML = html;
 }
@@ -416,6 +479,22 @@ async function toggleTier(id, current) {
   await apiFetch(`/api/tasks/${id}`, { method: 'PATCH', body: JSON.stringify({ tier: next }) });
 }
 
+
+async function addManualTask() {
+  const input = document.getElementById('manualTaskInput');
+  const title = input.value.trim();
+  if (!title) return;
+  input.value = '';
+  await apiFetch('/api/tasks/manual', { method: 'POST', body: JSON.stringify({ title }) });
+}
+
+async function setManualStatus(id, status) {
+  await apiFetch(`/api/tasks/${id}`, { method: 'PATCH', body: JSON.stringify({ status }) });
+}
+
+async function deleteTask(id) {
+  await apiFetch(`/api/tasks/${id}`, { method: 'DELETE' });
+}
 
 function editTitle(el, id) {
   const current = el.textContent;

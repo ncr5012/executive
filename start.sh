@@ -17,4 +17,10 @@ cd "$SCRIPT_DIR"
 nohup node server.js > "$SCRIPT_DIR/data/server.log" 2>&1 &
 echo "Executive running at http://localhost:$PORT (PID $!)"
 sleep 0.5
-open "http://localhost:$PORT"
+
+# Open browser (cross-platform)
+if command -v xdg-open &>/dev/null; then
+  xdg-open "http://localhost:$PORT" 2>/dev/null &
+elif command -v open &>/dev/null; then
+  open "http://localhost:$PORT"
+fi

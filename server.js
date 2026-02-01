@@ -119,6 +119,30 @@ app.post('/api/autopilot', (req, res) => {
   res.json({ allow: task.autopilot === true });
 });
 
+// Create manual (non-Claude) task
+app.post('/api/tasks/manual', (req, res) => {
+  const { title } = req.body;
+  if (!title || !title.trim()) return res.status(400).json({ error: 'title required' });
+  const data = loadTasks();
+  const task = {
+    id: uuidv4(),
+    title: title.trim(),
+    tier: 'routine',
+    status: 'queued',
+    machine: null,
+    autopilot: false,
+    sessionId: null,
+    cwd: null,
+    manual: true,
+    createdAt: new Date().toISOString(),
+    completedAt: null,
+  };
+  data.tasks.push(task);
+  saveTasks(data);
+  broadcast('task-created', task);
+  res.json(task);
+});
+
 // Toggle autopilot / edit task (dashboard)
 app.patch('/api/tasks/:id', (req, res) => {
   const data = loadTasks();
@@ -127,6 +151,13 @@ app.patch('/api/tasks/:id', (req, res) => {
   if (req.body.autopilot !== undefined) task.autopilot = !!req.body.autopilot;
   if (req.body.tier) task.tier = req.body.tier;
   if (req.body.title) task.title = req.body.title;
+  if (req.body.status && task.manual) {
+    const valid = ['queued', 'working', 'done'];
+    if (valid.includes(req.body.status)) {
+      task.status = req.body.status;
+      task.completedAt = req.body.status === 'done' ? new Date().toISOString() : null;
+    }
+  }
   saveTasks(data);
   broadcast('task-updated', task);
   res.json(task);
