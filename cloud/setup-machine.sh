@@ -92,9 +92,13 @@ if $IS_SERVER; then
   fi
   echo "$API_KEY" > ~/.executive-key
   echo "[4/5] Synced API key from .env to ~/.executive-key"
-elif [ ! -f ~/.executive-key ]; then
+else
+  # Remote machine: always prompt so key stays in sync with server
   echo ""
-  echo "  No API key found at ~/.executive-key."
+  if [ -f ~/.executive-key ]; then
+    echo "  Current API key: $(cat ~/.executive-key | cut -c1-8)..."
+  fi
+  echo "  On the server, run: grep EXECUTIVE_API_KEY .env"
   echo -n "  Paste the API key from the cloud server's .env file: "
   read API_KEY
   if [ -z "$API_KEY" ]; then
@@ -103,8 +107,6 @@ elif [ ! -f ~/.executive-key ]; then
   fi
   echo "$API_KEY" > ~/.executive-key
   echo "[4/5] Wrote ~/.executive-key"
-else
-  echo "[4/5] API key already set at ~/.executive-key"
 fi
 
 # 5. Configure Claude Code hooks globally

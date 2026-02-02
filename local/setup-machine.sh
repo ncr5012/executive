@@ -86,6 +86,10 @@ settings.hooks = {
     matcher: '',
     hooks: [{ type: 'command', command: hooksDir + '/autopilot-hook.sh', timeout: 5 }]
   }],
+  PermissionRequest: [{
+    matcher: '',
+    hooks: [{ type: 'command', command: hooksDir + '/permission-hook.sh', timeout: 5 }]
+  }],
   Stop: [{
     hooks: [{ type: 'command', command: hooksDir + '/stop-hook.sh', timeout: 5 }]
   }],
