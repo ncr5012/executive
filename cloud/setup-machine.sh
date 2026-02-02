@@ -7,7 +7,7 @@
 #
 # Examples:
 #   ./setup-machine.sh                                          # auto-detect server or prompt
-#   ./setup-machine.sh devbox https://executive.vibeotter.dev   # remote machine
+#   ./setup-machine.sh devbox https://executive.yourdomain.com   # remote machine
 
 set -e
 

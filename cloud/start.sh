@@ -16,4 +16,4 @@ fi
 cd "$SCRIPT_DIR"
 nohup node server.js > "$SCRIPT_DIR/data/server.log" 2>&1 &
 echo "Executive cloud running on 127.0.0.1:$PORT (PID $!)"
-echo "Access via your nginx domain (e.g. https://executive.vibeotter.dev)"
+echo "Access via your nginx domain (e.g. https://executive.yourdomain.com)"

@@ -1,8 +1,11 @@
 {
-  "name": "executive",
+  "name": "executive-local",
   "version": "1.0.0",
-  "description": "Claude Code orchestration dashboard",
+  "description": "Claude Code orchestration dashboard (local)",
   "main": "server.js",
+  "license": "Apache-2.0",
+  "author": "Vibe Otter (https://vibeotter.com)",
+  "keywords": ["claude-code", "orchestration", "dashboard", "autopilot", "vibe-coding"],
   "scripts": {
     "start": "node server.js",
     "setup": "node setup.js"
