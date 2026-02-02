@@ -2,6 +2,8 @@
 
 A real-time Claude Code orchestration dashboard for managing multiple AI coding sessions across machines.
 
+Let humans focus on what humans are good at -- creativity, executive control, decision-making -- and let AIs focus on what they're good at -- lightspeed execution.
+
 Built as an internal dev tool for [Vibe Otter](https://vibeotter.com) and open-sourced to help other vibe coders out.
 
 [![Demo Video](https://img.youtube.com/vi/z-KV7Xdjuco/maxresdefault.jpg)](https://youtu.be/z-KV7Xdjuco)
