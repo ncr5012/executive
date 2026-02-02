@@ -12,7 +12,7 @@ CWD=$(echo "$INPUT" | grep -o '"cwd":"[^"]*"' | head -1 | cut -d'"' -f4)
 
 API_KEY=$(cat ~/.executive-key 2>/dev/null)
 MACHINE=$(cat ~/.executive-machine 2>/dev/null || echo "unknown")
-HOST=$(cat ~/.executive-host 2>/dev/null || echo "http://localhost:7777")
+HOST=$(cat ~/.executive-host 2>/dev/null || echo "http://localhost:7778")
 
 RESP=$(curl -sf --max-time 3 -X POST "$HOST/api/register" \
   -H "Content-Type: application/json" \

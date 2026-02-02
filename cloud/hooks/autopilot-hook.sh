@@ -4,11 +4,12 @@
 
 INPUT=$(cat)
 SESSION_ID=$(echo "$INPUT" | grep -o '"session_id":"[^"]*"' | head -1 | cut -d'"' -f4)
+TOOL_NAME=$(echo "$INPUT" | grep -o '"tool_name":"[^"]*"' | head -1 | cut -d'"' -f4)
 [ -z "$SESSION_ID" ] && echo '{}' && exit 0
 
 TASK_FILE="/tmp/executive-${SESSION_ID}"
 API_KEY=$(cat ~/.executive-key 2>/dev/null)
-HOST=$(cat ~/.executive-host 2>/dev/null || echo "http://localhost:7777")
+HOST=$(cat ~/.executive-host 2>/dev/null || echo "http://localhost:7778")
 MACHINE=$(cat ~/.executive-machine 2>/dev/null || echo "unknown")
 
 # If no task file yet, register this session (first tool call)
@@ -42,6 +43,19 @@ RESP=$(curl -sf --max-time 2 -X POST "$HOST/api/autopilot" \
 
 echo "$RESP" | grep -q '"allow":true'
 if [ $? -eq 0 ]; then
+  # Inject "1" keystroke for tools that wait on user input
+  if [ "$TOOL_NAME" = "AskUserQuestion" ] || [ "$TOOL_NAME" = "ExitPlanMode" ]; then
+    # Find the TTY that Claude Code is reading from
+    TARGET_PID=$PPID
+    while [ "$TARGET_PID" -gt 1 ]; do
+      FD0=$(readlink -f /proc/$TARGET_PID/fd/0 2>/dev/null)
+      if echo "$FD0" | grep -q '/dev/pts/\|/dev/tty'; then
+        (sleep 0.5 && printf '1\n' > "$FD0") &
+        break
+      fi
+      TARGET_PID=$(ps -o ppid= -p "$TARGET_PID" 2>/dev/null | tr -d ' ')
+    done
+  fi
   echo '{"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"allow"}}'
 else
   echo '{}'

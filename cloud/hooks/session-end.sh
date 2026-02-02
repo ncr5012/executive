@@ -12,7 +12,7 @@ TASK_ID=$(cat "$TASK_FILE")
 [ -z "$TASK_ID" ] && exit 0
 
 API_KEY=$(cat ~/.executive-key 2>/dev/null)
-HOST=$(cat ~/.executive-host 2>/dev/null || echo "http://localhost:7777")
+HOST=$(cat ~/.executive-host 2>/dev/null || echo "http://localhost:7778")
 
 # Delete the task from dashboard
 curl -sf --max-time 2 -X DELETE "$HOST/api/tasks/$TASK_ID" \

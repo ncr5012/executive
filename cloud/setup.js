@@ -92,9 +92,9 @@ async function setup() {
     console.log(`Wrote machine identity to ${homeMachine}`);
   }
 
-  // For cloud, default host is the remote URL
-  console.log(`\nCurrent ~/.executive-host: ${fs.existsSync(homeHost) ? fs.readFileSync(homeHost, 'utf8').trim() : '(not set)'}`);
-  console.log('If this is the cloud server, clients should set ~/.executive-host to your domain.');
+  // Server machine always talks to localhost directly
+  fs.writeFileSync(homeHost, 'http://127.0.0.1:7778');
+  console.log(`Wrote ${homeHost} = http://127.0.0.1:7778`);
 
   console.log('\n--- Setup complete ---');
   console.log(`API Key: ${envVars.EXECUTIVE_API_KEY}`);

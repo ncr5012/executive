@@ -12,7 +12,7 @@ TASK_ID=$(cat "$TASK_FILE")
 [ -z "$TASK_ID" ] && exit 0
 
 API_KEY=$(cat ~/.executive-key 2>/dev/null)
-HOST=$(cat ~/.executive-host 2>/dev/null || echo "http://localhost:7777")
+HOST=$(cat ~/.executive-host 2>/dev/null || echo "http://localhost:7778")
 
 curl -sf --max-time 2 -X POST "$HOST/api/resume" \
   -H "Content-Type: application/json" \
