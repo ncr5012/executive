@@ -408,8 +408,9 @@ function render() {
         </div>
         <span class="badge badge-${t.tier} clickable" onclick="toggleTier('${t.id}', '${t.tier}')">${t.tier}</span>
         ${t.manual ? '<span class="badge badge-manual">manual</span>' : '<span class="badge badge-machine">' + esc(t.machine) + '</span>'}
-        ${t.manual ? '<button class="btn-sm btn-sm-yellow" onclick="setManualStatus(\'' + t.id + '\', \'working\')">Resume</button>' : ''}
-        ${t.manual ? '<button class="delete-btn" onclick="deleteTask(\'' + t.id + '\')" title="Delete">&times;</button>' : ''}
+        ${t.manual
+          ? '<button class="btn-sm btn-sm-yellow" onclick="setManualStatus(\'' + t.id + '\', \'working\')">Resume</button><button class="delete-btn" onclick="deleteTask(\'' + t.id + '\')" title="Delete">&times;</button>'
+          : '<div class="toggle-wrap"><span class="toggle-label">Auto</span><div class="toggle ' + (t.autopilot ? 'on' : '') + '" onclick="toggleAutopilot(\'' + t.id + '\', ' + !t.autopilot + ')"></div></div>'}
       </div>`;
   });
   html += '</div>';
