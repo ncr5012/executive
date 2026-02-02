@@ -4,6 +4,8 @@ A real-time Claude Code orchestration dashboard for managing multiple AI coding 
 
 Built as an internal dev tool for [Vibe Otter](https://vibeotter.com) and open-sourced to help other vibe coders out.
 
+[![Demo Video](https://img.youtube.com/vi/z-KV7Xdjuco/maxresdefault.jpg)](https://youtu.be/z-KV7Xdjuco)
+
 ## The Problem
 
 If you're running 3-5 Claude Code sessions at once, you already know what happens: you kick off a task, wait for Claude to finish, get distracted scrolling X, and then come back and talk to whichever Claude finishes first -- even if it's working on something low-priority. Once there are more than two sessions running, your weakly human executive brain function simply cannot keep track of what's happening where.
