@@ -1,0 +1,17 @@
+{
+  "name": "executive-cloud",
+  "version": "1.0.0",
+  "description": "Claude Code orchestration dashboard (cloud-hosted)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "setup": "node setup.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.3.1",
+    "express": "^4.21.0",
+    "uuid": "^10.0.0"
+  }
+}

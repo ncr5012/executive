@@ -1,4 +1,19 @@
+# Secrets & runtime data
+.env
+**/data/
+
+# Dependencies
 node_modules/
-data/tasks.json
-data/server.log
-data/tasks.json.tmp
+
+# Temp files
+*.tmp
+*.log
+
+# OS/editor
+.DS_Store
+*.swp
+*~
+.vscode/
+
+# Claude Code local state
+.claude/

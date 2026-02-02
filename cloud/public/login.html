@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Executive — Login</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Mono', 'Fira Code', monospace;
+    background: #0a0a0a;
+    color: #e0e0e0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .login-box {
+    width: 100%;
+    max-width: 400px;
+    padding: 48px;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 8px;
+  }
+  h1 {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #fff;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+  input {
+    width: 100%;
+    padding: 14px 18px;
+    background: #0a0a0a;
+    border: 1px solid #333;
+    color: #e0e0e0;
+    font-family: inherit;
+    font-size: 18px;
+    border-radius: 6px;
+    outline: none;
+    margin-bottom: 16px;
+  }
+  input:focus { border-color: #555; }
+  button {
+    width: 100%;
+    padding: 14px 24px;
+    border: 1px solid #2a5a2a;
+    background: #1a1a1a;
+    color: #4ade80;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 18px;
+    border-radius: 6px;
+  }
+  button:hover { background: #1a2e1a; }
+  .error {
+    color: #f87171;
+    font-size: 14px;
+    margin-top: 12px;
+    text-align: center;
+    display: none;
+  }
+</style>
+</head>
+<body>
+<div class="login-box">
+  <h1>EXECUTIVE</h1>
+  <form onsubmit="login(event)">
+    <input type="password" id="password" placeholder="Password" autofocus>
+    <button type="submit">Login</button>
+  </form>
+  <div class="error" id="error">Invalid password</div>
+</div>
+<script>
+async function login(e) {
+  e.preventDefault();
+  const password = document.getElementById('password').value;
+  const errEl = document.getElementById('error');
+  errEl.style.display = 'none';
+  try {
+    const res = await fetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password }),
+    });
+    if (res.ok) {
+      window.location.href = '/';
+    } else {
+      errEl.style.display = 'block';
+    }
+  } catch {
+    errEl.textContent = 'Connection failed';
+    errEl.style.display = 'block';
+  }
+}
+</script>
+</body>
+</html>
