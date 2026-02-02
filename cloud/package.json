@@ -5,13 +5,19 @@
   "main": "server.js",
   "license": "Apache-2.0",
   "author": "Vibe Otter (https://vibeotter.com)",
-  "keywords": ["claude-code", "orchestration", "dashboard", "autopilot", "vibe-coding"],
+  "keywords": [
+    "claude-code",
+    "orchestration",
+    "dashboard",
+    "autopilot",
+    "vibe-coding"
+  ],
   "scripts": {
     "start": "node server.js",
     "setup": "node setup.js"
   },
   "dependencies": {
-    "bcrypt": "^5.1.1",
+    "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.3.1",
     "express": "^4.21.0",

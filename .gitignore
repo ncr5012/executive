@@ -1,6 +1,14 @@
 # Secrets & runtime data
 .env
+.env.*
 **/data/
+
+# Cryptographic keys & certificates
+*.pem
+*.key
+*.crt
+*.p12
+*.pkcs12
 
 # Dependencies
 node_modules/
