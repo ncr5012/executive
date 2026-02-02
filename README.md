@@ -1,5 +1,7 @@
 # Executive
 
+> **This project was just open-sourced and is under active development.** It was built as an internal tool and is being adapted for public use. Expect rough edges. Please check the [Known Issues](#known-issues) section before installing, and [open an issue](../../issues) if you run into problems.
+
 A real-time Claude Code orchestration dashboard for managing multiple AI coding sessions across machines.
 
 Let humans focus on what humans are good at -- creativity, executive control, decision-making -- and let AIs focus on what they're good at -- lightspeed execution.
@@ -53,6 +55,8 @@ Two deployment variants:
 - **`cloud/`** -- Runs on `localhost:7778` behind a reverse proxy (nginx), password auth with bcrypt + signed HTTP-only cookies. Best for multi-machine setups accessed over the internet.
 
 ## Quick Start
+
+> **Platform support:** Linux and macOS only. Windows is not yet supported -- see [Known Issues](#known-issues).
 
 ### Local (Single Machine)
 
@@ -121,6 +125,26 @@ The setup script writes these files for the hooks to use:
 | `~/.executive-key` | API key for authenticating with the dashboard |
 | `~/.executive-machine` | Machine name displayed in the dashboard |
 | `~/.executive-host` | Dashboard URL that hooks call |
+
+## Known Issues
+
+### Windows is not supported (fix targeted for Feb 6, 2026)
+
+Executive currently only works on **Linux and macOS**. The hooks are bash scripts that use Linux/macOS-specific commands (`lsof`, `readlink -f`, `curl`), and the setup scripts assume a Unix environment. Running on Windows -- including Git Bash -- will not work. WSL (Windows Subsystem for Linux) may work but is untested.
+
+Windows support is actively being worked on and is expected by **February 6, 2026**.
+
+### Setup may overwrite your Claude Code settings
+
+The `setup-machine.sh` script configures Claude Code hooks by writing to `~/.claude/settings.json`. **It completely replaces the `hooks` key**, which means any existing hooks you had configured will be overwritten. The script creates a `.bak` backup of your settings file before writing, but if your `settings.json` fails to parse (e.g. it contains comments or is malformed), the backup is skipped and your settings will be overwritten without recovery.
+
+**Before running setup**, manually back up your settings:
+
+```bash
+cp ~/.claude/settings.json ~/.claude/settings.json.backup
+```
+
+If you already ran setup and lost settings, check for `~/.claude/settings.json.bak`.
 
 ## About
 
