@@ -12,7 +12,7 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-MACHINE="${1:-local}"
+MACHINE="${1:-$(hostname -s)}"
 HOST="${2:-}"
 ENV_FILE="$SCRIPT_DIR/.env"
 IS_SERVER=false
